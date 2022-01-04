@@ -3,9 +3,12 @@ import * as buffer from "../buffer";
 const testStr = buffer.encode({
     testStringField: 'hello world',
     testNumberField: 123,
-    testTableField: [
+    testArrayField: [
         "hello array"
     ],
+    testTableField: {
+        foo: "hello table"
+    },
 })
 
 import { getField, setField } from ".."
@@ -25,8 +28,13 @@ describe("Simple storage", () => {
     it("Returns a string field correctly", () => {
         assert.is_equal("hello world", getField("testStringField"));
     })
+    it("Returns an array field correctly", () => {
+        // @ts-ignore
+        assert.are.same(["hello array"], getField("testArrayField"));
+    })
     it("Returns a table field correctly", () => {
-        assert.is_equal(["hello array"], getField("testTableField"));
+        // @ts-ignore
+        assert.are.same({foo: "hello array"}, getField("testTableField"));
     })
     it("Returns a number field correctly", () => {
         assert.is_equal(123, getField("testNumberField"));
