@@ -20,6 +20,9 @@
       "love-typescript-definitions"
     ]
   },
+  "exclude": [
+    "*/spec/*"
+  ],
   "tstl": {
     "luaLibImport": "none",
     "buildMode": "library",

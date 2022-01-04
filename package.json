@@ -4,7 +4,8 @@
     "description": "love-simple-storage",
     "main": "index.lua",
     "scripts": {
-        "build": "tstl && rm -rf ./dist/spec",
+        "build": "tstl",
+        "build-bundle": "tstl --project tsconfig.bundle.json",
         "build-testing": "tstl --project tsconfig.test.json",
         "git-publish": "tstl",
         "dev": "tstl --watch"
