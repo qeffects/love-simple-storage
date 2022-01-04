@@ -15,7 +15,7 @@
       "noPropertyAccessFromIndexSignature": true,
       "types": [
         "love-typescript-definitions",
-        "busted-tstl",
+        "qfx-busted-tstl",
         "typescript-to-lua/language-extensions",
         "lua-types/jit"
       ]
