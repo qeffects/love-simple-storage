@@ -28,3 +28,10 @@ local simpleStorage = require('simpleStorage')
 ```
 
 Mind that setField will write the file to the disk.
+
+Available in NPM as a typescript to lua ready library:
+
+https://www.npmjs.com/package/love-simple-storage
+
+
+or as a bundled lua only library: https://github.com/qeffects/love-simple-storage/suites/4831790610/artifacts/136621514
