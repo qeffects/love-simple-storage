@@ -15,7 +15,8 @@ describe("Simple storage", () => {
     _G['love'] = {
         filesystem: {
             read: () => (testStr),
-            write: () => {}
+            write: () => {},
+            getInfo: () => true,
         }
     }
     it("Returns a default for an empty field correctly", () => {
