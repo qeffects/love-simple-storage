@@ -20,6 +20,16 @@ else
 end
 ```
 
+functions:
+
+`getField(fieldName, defaultValue)`
+
+gets a value at a field, if it doesn't exist returns defaultValue
+
+`setField(fieldName, value)`
+
+sets a field to a value
+
 Optionally set the file handle before the first require like so:
 
 ```lua
