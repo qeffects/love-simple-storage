@@ -8,16 +8,17 @@ const testStr = buffer.encode({
         "hello array"
     ],
 })
-const love = {
-    filesystem: {
-        read: () => (testStr),
-        write: () => {}
-    }
-}
 
 import { getField, setField } from ".."
 
 describe("Simple storage", () => {
+    // @ts-ignore
+    _G['love'] = {
+        filesystem: {
+            read: () => (testStr),
+            write: () => {}
+        }
+    }
     it("Returns a default for an empty field correctly", () => {
         assert.is_equal(true, getField("random", true));
     })
