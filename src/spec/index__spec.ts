@@ -1,5 +1,4 @@
-/** @ts-ignore */
-const buffer = require('string.buffer');
+import * as buffer from "../buffer";
 
 const testStr = buffer.encode({
     testStringField: 'hello world',

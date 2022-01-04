@@ -1,21 +1,19 @@
+import * as buffer from "./buffer";
+
 let storageState: LuaTable<string, any>;
 let filename = "";
-let buffer = {
-    encode: (s: any): string => "",
-};
 let isSetup = false;
+
 const setup = () => {
     filename = SIMPLE_STORAGE_FILE || "simpleStorage.store";
-
-    /** @ts-ignore */
-    const buffer = require("string.buffer");
 
     const isFile = love.filesystem.getInfo(filename);
 
     if (isFile) {
-        storageState = buffer.decode(
-            love.filesystem.read("string", filename)
-        ) as LuaTable<string, any>;
+        const [file] = love.filesystem.read("string", filename);
+        if (type(file) === "string") {
+            storageState = buffer.decode(file) as LuaTable<string, any>;
+        }
     } else {
         storageState = new LuaTable<string, any>();
     }
