@@ -1,5 +1,7 @@
 # A simple persistent storage model for love
 
+[![Tests](https://github.com/qeffects/love-simple-storage/actions/workflows/node.js.yml/badge.svg)](https://github.com/qeffects/love-simple-storage/actions/workflows/node.js.yml)
+
 (the files aren't human readable)
 
 Requires love > 11.4
