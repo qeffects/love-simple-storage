@@ -4,7 +4,7 @@
     "description": "love-simple-storage",
     "main": "index.lua",
     "scripts": {
-        "build": "tstl && mv ./dist/* .",
+        "build": "tstl",
         "git-publish": "tstl",
         "dev": "tstl --watch"
     },
