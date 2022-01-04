@@ -4,7 +4,7 @@
     "description": "love-simple-storage",
     "main": "index.lua",
     "scripts": {
-        "build": "tstl",
+        "build": "tstl && rm -rf ./dist/spec",
         "build-testing": "tstl --project tsconfig.test.json",
         "git-publish": "tstl",
         "dev": "tstl --watch"
@@ -14,9 +14,11 @@
         "*.d.ts"
     ],
     "keywords": [
+        "love2d",
+        "simple",
+        "storage",
+        "persistent",
         "lua",
-        "object",
-        "pool",
         "tstl"
     ],
     "author": "qfluxstudios@gmail.com",
