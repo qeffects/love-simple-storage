@@ -34,7 +34,7 @@ describe("Simple storage", () => {
     })
     it("Returns a table field correctly", () => {
         // @ts-ignore
-        assert.are.same({foo: "hello array"}, getField("testTableField"));
+        assert.are.same({foo: "hello table"}, getField("testTableField"));
     })
     it("Returns a number field correctly", () => {
         assert.is_equal(123, getField("testNumberField"));
