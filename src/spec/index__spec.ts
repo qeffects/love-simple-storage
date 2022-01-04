@@ -29,12 +29,10 @@ describe("Simple storage", () => {
         assert.is_equal("hello world", getField("testStringField"));
     })
     it("Returns an array field correctly", () => {
-        // @ts-ignore
-        assert.is_same(["hello array"], getField("testArrayField"));
+        same.is_same(["hello array"], getField("testArrayField"));
     })
     it("Returns a table field correctly", () => {
-        // @ts-ignore
-        assert.is_same({foo: "hello table"}, getField("testTableField"));
+        same.is_same({foo: "hello table"}, getField("testTableField"));
     })
     it("Returns a number field correctly", () => {
         assert.is_equal(123, getField("testNumberField"));
