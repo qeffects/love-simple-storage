@@ -1,6 +1,6 @@
 {
     "name": "love-simple-storage",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "description": "Simple persistent storage for love2d projects",
     "main": "index.lua",
     "scripts": {
