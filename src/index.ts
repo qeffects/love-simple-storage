@@ -13,7 +13,7 @@ if (isFile) {
     storageState = new LuaTable<string, any>();
 }
 
-export const getField = <T extends any>(fieldName: string, defaultValue: T): T => {
+export const getField = <T extends any>(fieldName: string, defaultValue?: T): T => {
     return storageState.get(fieldName) || defaultValue;
 };
 

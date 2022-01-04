@@ -1,0 +1,30 @@
+{
+    "compilerOptions": {
+      "lib": ["esnext"],
+      "rootDir": "src",
+      "declaration": true,
+      "outDir": "testing",
+      "noImplicitAny": true,
+      "target": "esnext",
+      "moduleResolution": "node",
+      "strictFunctionTypes": true,
+      "strictNullChecks": true,
+      "strictPropertyInitialization": true,
+      "downlevelIteration": true,
+      "forceConsistentCasingInFileNames": true,
+      "noPropertyAccessFromIndexSignature": true,
+      "types": [
+        "love-typescript-definitions",
+        "busted-tstl",
+        "typescript-to-lua/language-extensions",
+        "lua-types/jit"
+      ]
+    },
+    "tstl": {
+      "luaTarget": "JIT",
+      "noImplicitSelf": true,
+      "sourceMapTraceback": false,
+      "noResolvePaths": ["string.buffer"]
+    }
+  }
+  
