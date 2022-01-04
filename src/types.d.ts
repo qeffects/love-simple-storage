@@ -1,0 +1,1 @@
+declare let SIMPLE_STORAGE_FILE: string|undefined;

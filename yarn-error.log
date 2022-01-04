@@ -1,0 +1,64 @@
+Arguments: 
+  /opt/homebrew/Cellar/node/17.2.0/bin/node /opt/homebrew/Cellar/yarn/1.22.17_1/libexec/bin/yarn.js global bin
+
+PATH: 
+  /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Frameworks/Mono.framework/Versions/Current/Commands:/opt/homebrew/bin:/opt/homebrew/sbin
+
+Yarn version: 
+  1.22.17
+
+Node version: 
+  17.2.0
+
+Platform: 
+  darwin arm64
+
+Trace: 
+  Error: Failed to replace env in config: ${NPM_TOKEN}
+      at /opt/homebrew/Cellar/yarn/1.22.17_1/libexec/lib/cli.js:99004:13
+      at String.replace (<anonymous>)
+      at envReplace (/opt/homebrew/Cellar/yarn/1.22.17_1/libexec/lib/cli.js:98999:16)
+      at Function.normalizeConfig (/opt/homebrew/Cellar/yarn/1.22.17_1/libexec/lib/cli.js:31930:69)
+      at NpmRegistry.<anonymous> (/opt/homebrew/Cellar/yarn/1.22.17_1/libexec/lib/cli.js:31960:34)
+      at Generator.next (<anonymous>)
+      at step (/opt/homebrew/Cellar/yarn/1.22.17_1/libexec/lib/cli.js:310:30)
+      at /opt/homebrew/Cellar/yarn/1.22.17_1/libexec/lib/cli.js:321:13
+
+npm manifest: 
+  {
+      "name": "love-simple-storage",
+      "version": "1.0.0",
+      "description": "love-simple-storage",
+      "main": "index.lua",
+      "scripts": {
+          "build": "tstl && mv ./dist/* .",
+          "git-publish": "tstl",
+          "dev": "tstl --watch"
+      },
+      "files": [
+          "*.lua",
+          "*.d.ts"
+      ],
+      "keywords": [
+          "lua",
+          "object",
+          "pool",
+          "tstl"
+      ],
+      "author": "qfluxstudios@gmail.com",
+      "repository": {
+          "url": "https://github.com/qeffects/love-simple-storage"
+      },
+      "license": "MIT",
+      "dependencies": {
+          "love-typescript-definitions": "^0.24.0",
+          "lua-types": "^2.10.1",
+          "typescript-to-lua": "^1.0.1"
+      }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
