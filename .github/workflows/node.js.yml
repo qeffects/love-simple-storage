@@ -1,7 +1,7 @@
 # This workflow will do a clean install of node dependencies, cache/restore them, build the source code and run tests across different versions of node
 # For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
 
-name: TSTL Build && Artifact Upload
+name: Build && Artifact Upload
 
 on:
   push:
@@ -11,29 +11,69 @@ on:
 
 jobs:
   build:
-
+    name: Building Artifact
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: [16.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
-        
     env:
       NPM_TOKEN: ${{ secrets.NPM_ACCESS_TOKEN }}
       
     steps:  
     - uses: actions/checkout@v2
-    - name: Use Node.js ${{ matrix.node-version }}
+    - name: Use Node.js [16.x]
       uses: actions/setup-node@v2
       with:
-        node-version: ${{ matrix.node-version }}
+        node-version: 16.x
         cache: 'npm'
-    - run: npm install && npm run-script git-publish
-    - run: cp package.json ./dist/ && cp package-lock.json ./dist/ && cp README.md ./dist/ && cp LICENSE ./dist/ && cp .npmrc ./dist/
+    - name: Install Node Modules
+      run: npm install && npm run-script build
+    - name: Prepare build artifact
+      run: |
+        cp README.md ./dist/
+        cp LICENSE ./dist/
+        cp .npmrc ./dist/
+        cp -r .git ./dist/
     - uses: actions/upload-artifact@v2.2.4
       with:
         path: ./dist/
-    - run: cd dist
-    - continue-on-error: true
-      run: npm publish
+        name: build
+
+  check_deploy:
+    name: Checking Message
+    runs-on: ubuntu-latest
+    needs: [build, build_tests]
+    if: "contains(github.event.head_commit.message, '@deploy')"
+    steps:
+      - name: Echo
+        run: echo Found Message
+    
+  deploy: 
+    name: Deploy To NPM
+    runs-on: ubuntu-latest
+    needs: check_deploy
+    env:
+      NPM_TOKEN: ${{ secrets.NPM_ACCESS_TOKEN }}
+    
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js 16.x
+        uses: actions/setup-node@v2
+        with:
+          node-version: 16.x
+          cache: 'npm'
+      - name: npm bump
+        run: | 
+          git config user.email "qfluxstudio@gmail.com"
+          git config user.name "qeffects"
+          npm version patch -f -m "Auto NPM version bump [skip ci]"
+          git push --follow-tags
+      - name: Download a Build Artifact
+        uses: actions/download-artifact@v2.0.10
+        with:
+          name: build
+          path: build
+      - name: Publish NPM
+        run: |
+          cp package.json ./build/
+          cp package-lock.json ./build/
+          cd build
+          npm publish
